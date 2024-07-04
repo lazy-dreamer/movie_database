@@ -18,6 +18,7 @@ export function Search() {
     setState(searchQuery)
   }, [searchQuery]);
   
+  
   const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     console.log('change')
     dispatch(setSearchQuery((e.target as HTMLInputElement).value));

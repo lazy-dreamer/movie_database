@@ -1,0 +1,29 @@
+@import "../../styles/variables";
+
+.error_msg {
+  max-width: 60rem;
+  margin: 2rem auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  > *:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  a {
+    color: #fff;
+    transition: .3s;
+    text-decoration: underline;
+
+    &:hover {
+      color: $green;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1.5rem;
+  }
+}

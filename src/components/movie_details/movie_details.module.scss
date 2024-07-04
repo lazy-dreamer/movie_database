@@ -1,0 +1,65 @@
+.main_title {
+  color: #fff;
+  font-size: 4rem;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.heading {
+  color: #fff;
+
+  & > *:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 5rem;
+  }
+}
+
+.overview {
+  max-width: 70rem;
+  font-size: 1.8rem;
+}
+
+.overview_frame {
+
+  > *:not(:last-child) {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.feature_block {
+  display: flex;
+  align-items: center;
+  line-height: 1;
+
+
+  > *:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+.rate_start {
+  flex-shrink: 0;
+  width: 2rem;
+  height: auto;
+}
+
+.feature_title {
+  color: #fff;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.features {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: -1rem;
+
+  > * {
+    margin: 1rem;
+  }
+}
+

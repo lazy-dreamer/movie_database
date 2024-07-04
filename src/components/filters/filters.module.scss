@@ -1,0 +1,40 @@
+@import '../../styles/variables';
+
+.genre_filters {
+  display: block;
+  padding: 2rem;
+  background: rgba(#fff, .05);
+  border: 1px solid $border;
+  border-radius: 1.5rem;
+  position: relative;
+  z-index: 2;
+
+  > *:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
+
+.title {
+  color: #fff;
+  font-weight: 500;
+  font-size: 2rem;
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.genre_buttons {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -.5rem;
+
+  > * {
+    margin: .5rem;
+  }
+}
+

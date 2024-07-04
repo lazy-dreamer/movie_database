@@ -1,0 +1,87 @@
+@import '../../styles/variables';
+
+.search_form_frame {
+  display: block;
+  padding: 2rem;
+  background: rgba(#fff, .05);
+  border: 1px solid $border;
+  border-radius: 1.5rem;
+  position: relative;
+  z-index: 2;
+
+  > *:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+}
+
+.title {
+  color: #fff;
+  font-weight: 500;
+  font-size: 2rem;
+
+  &:not(:last-child) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.search_form {
+  display: flex;
+  position: relative;
+
+  input {
+    padding-right: 4rem;
+  }
+}
+
+.search_field_block {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.clear {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 4rem;
+
+  &:before, &:after {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: rgba(#fff, .4);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transition;
+  }
+
+  &:before {
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -o-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+  }
+
+  &:after {
+    -moz-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    -ms-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    -o-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+  }
+
+  &:hover {
+    &:before, &:after {
+      background: $green;
+    }
+  }
+}

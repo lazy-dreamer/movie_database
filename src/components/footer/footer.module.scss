@@ -1,0 +1,46 @@
+.footer {
+  padding: 2rem 10px;
+  border-top: 1px solid rgba(#fff, .1)
+}
+
+.logo {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  line-height: normal;
+  flex-shrink: 0;
+
+  p {
+    flex-shrink: 0;
+  }
+
+  > *:not(:last-child) {
+    margin-right: 1.5rem;
+  }
+
+  img, svg {
+    max-width: 5rem;
+    height: auto;
+  }
+}
+
+.footer_sides {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tmdb {
+  display: flex;
+  align-items: center;
+
+  img, svg {
+    max-height: 4rem;
+  }
+
+  > *:not(:last-child) {
+    margin-right: 1.5rem;
+  }
+}

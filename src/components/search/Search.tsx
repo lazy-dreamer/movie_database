@@ -14,6 +14,7 @@ export function Search() {
   const {searchQuery, films, status} = useSelector((state: RootState) => state.search)
   
   useEffect(() => {
+    console.log('effect')
     dispatch(fetchSearchFilms(searchQuery))
     setState(searchQuery)
   }, [searchQuery]);

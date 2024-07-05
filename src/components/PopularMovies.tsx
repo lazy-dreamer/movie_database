@@ -6,7 +6,7 @@ import {FilmBlock} from "./film_block/FilmBlock";
 import fetchPopularFilms from "../redux/thunks/fetchPopularFilms";
 import ReactPaginate from 'react-paginate';
 import {setActivePage} from "../redux/films_slice/filmsSlice";
-import { AppDispatch, RootState } from "../redux/store";
+import {AppDispatch, RootState} from "../redux/store";
 
 export type TFilm = {
   "adult": boolean;
@@ -27,49 +27,43 @@ export type TFilm = {
 
 function PopularMovies() {
   const dispatch: AppDispatch = useDispatch();
-  const {films, status, errorStatus, totalPages, page} = useSelector((state:RootState) => state.films);
+  const {films, status, errorStatus, totalPages, page} = useSelector((state: RootState) => state.films);
   const ref = useRef<HTMLDivElement>(null);
-
+  
   useEffect(() => {
     dispatch(fetchPopularFilms(page));
-    console.log('PopularMovies effect')
-    // if (popularPage !== page) {
-    //  
-    // }
   }, [page, dispatch]);
-
+  
   useEffect(() => {
     if (films.length === 0) {
-      console.log('PopularMovies first load')
       dispatch(fetchPopularFilms(1));
     }
   }, []);
-
+  
   type TSelectedPage = {
     selected: number
   }
-
-  const handlePageClick = (e:TSelectedPage):void => {
-    console.log('handlePageClick')
+  
+  const handlePageClick = (e: TSelectedPage): void => {
     const selectedPage = e.selected + 1;
     dispatch(setActivePage(selectedPage));
-
+    
     window.scrollTo({
       top: ref.current?.offsetTop,
       left: 0,
       behavior: "smooth",
     });
   };
-
+  
   return (
     <>
       {status === 'loading' ? <Preloader customClass=''/> : status === 'error' ?
         <ErrorMessage error={errorStatus}/> :
         <>
           <div className="quarter_blocks bottom_offset" ref={ref}>
-            {films?.map((item:TFilm) => <FilmBlock key={item.id} film={item}/>)}
+            {films?.map((item: TFilm) => <FilmBlock key={item.id} film={item}/>)}
           </div>
-
+          
           {totalPages > 1 && (
             <ReactPaginate
               className='custom_pagination'

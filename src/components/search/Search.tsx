@@ -14,15 +14,22 @@ export function Search() {
   const {searchQuery, films, status} = useSelector((state: RootState) => state.search)
   
   useEffect(() => {
-    console.log('effect')
+    const throttleTimer = setTimeout(() => {
+      dispatch(setSearchQuery(state));
+    }, 500);
+    
+    return () => {
+      clearTimeout(throttleTimer);
+    };
+  }, [state, dispatch]);
+  
+  useEffect(() => {
     dispatch(fetchSearchFilms(searchQuery))
     setState(searchQuery)
-  }, [searchQuery]);
+  }, [searchQuery, dispatch]);
   
   
   const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    console.log('change')
-    dispatch(setSearchQuery((e.target as HTMLInputElement).value));
     setState((e.target as HTMLInputElement).value)
   }
   

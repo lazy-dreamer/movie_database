@@ -63,3 +63,27 @@
   }
 }
 
+.main_image_block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 1.8rem;
+  >*:not(:first-child) {
+    margin-top: 2rem;
+  }
+}
+
+.main_image_trigger {
+  font-size: 1.8rem;
+}
+
+.main_image_frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}

@@ -63,6 +63,7 @@ type TMovieDetails = {
 export const MovieDetails:React.FC<TId> = ({id}) => {
   const [movie, setMovie] = useState<TMovieDetails>();
   const [loading, setLoading] = useState(true);
+  const [imageShow, setImageShow] = useState(false);
   
   useEffect(() => {
     const fetchRecommendedMovies = async (id:string) => {
@@ -73,6 +74,10 @@ export const MovieDetails:React.FC<TId> = ({id}) => {
 
     fetchRecommendedMovies(id)
   }, [id]);
+  
+  const handleImagShow = () => {
+    setImageShow(!imageShow)
+  }
 
   return (
     loading ? <Preloader customClass=''/> : <section>
@@ -139,10 +144,16 @@ export const MovieDetails:React.FC<TId> = ({id}) => {
                 ) : (
                   <p>No website</p>
                 )}
-
               </div>
             </li>
           </ul>
+          {movie?.backdrop_path && movie.backdrop_path.length>0 ? <div className={s.main_image_block}>
+            <button type='button' className={`${s.main_image_trigger} green`} onClick={handleImagShow}>{ imageShow ? 'Hide banner image ⇑' : 'Show banner image ⇓'}</button>
+            {imageShow && <div className={s.main_image_frame}>
+              <img src={'https://image.tmdb.org/t/p/w1280' + movie?.backdrop_path} alt="main image"/>
+            </div>}
+          </div> : ''}
+          
         </div>
       </div>
     </section>

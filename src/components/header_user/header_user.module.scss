@@ -1,0 +1,17 @@
+.header_user {
+  display: flex;
+  align-items: center;
+  >*:not(:last-child) {
+    margin-right: 1rem;
+  }
+  img, svg {
+    max-width: 2rem;
+    max-height: 2rem;
+  }
+}
+
+.logout_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

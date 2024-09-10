@@ -71,3 +71,25 @@
   color: $dark_bg;
   margin-left: .5rem;
 }
+
+.header_right {
+  display: flex;
+  align-items: center; 
+  >*:not(:first-child) {
+    margin-left: 3rem;
+  }
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  >*:not(:first-child) {
+    margin-left: 1rem;
+  }
+}
+.reg_btn {
+  display: inline-block;
+  color: $green;
+  text-decoration: underline;
+  font-size: inherit;
+}

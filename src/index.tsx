@@ -14,6 +14,7 @@ import {SearchPage} from "./pages/SearchPage";
 import {Layout} from "./components/Layoyut";
 import { initializeApp } from "firebase/app";
 import { GoogleAuthProvider } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_FB_API_KEY,
@@ -26,6 +27,7 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 export const provider = new GoogleAuthProvider();
+export const db = getFirestore(app);
 
 const router = createBrowserRouter([
   {

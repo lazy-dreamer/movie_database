@@ -3,7 +3,7 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import toast from 'react-hot-toast';
 import {useDispatch} from "react-redux";
 import { AppDispatch} from "../redux/store";
-import {setLogin} from "../redux/auth_slice/authSlice";
+import {setLoginInfo} from "../services/auth";
 
 interface Props {
   className?: string,
@@ -22,14 +22,10 @@ export const RegForm:React.FC<Props> = ({className, toggleForm, modalClose}) => 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        setLoginInfo(user, dispatch)
         toast.success('Registration successful!', {
           icon: '✅',
         })
-        dispatch(setLogin({
-          userName: user.email,
-          userId: user.uid,
-          authProvider: user.providerData[0].providerId
-        }))
         setEmail('')
         setPassword('')
         modalClose(false)

@@ -719,10 +719,6 @@ input {
   padding-top: .5rem;
 }
 
-
-
-
-
 .light_bg {
   color: $dark_bg;
   input {
@@ -741,5 +737,47 @@ input {
   }
   .subtitle {
     color: $dark_bg;
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .quarter_blocks {
+    margin: -1rem;
+    > * {
+      margin: 1rem;
+      width: calc(33.333% - 2rem);
+    }
+  }
+}
+@media screen and (max-width: 799px) {
+  .quarter_blocks {
+    > * {
+      width: calc(50% - 2rem);
+    }
+  }
+
+  .section_bg.movie_back {
+    height: 0;
+    padding-bottom: 67%;
+  }
+}
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 8px;
+  }
+  .half_sides {
+    display: block;
+    >* {
+      width: 100%;
+      &:not(:last-child) {
+        margin-bottom: 2rem;
+      }
+    }
   }
 }

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import styles from './film_block.module.scss'
 import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
@@ -58,7 +58,7 @@ export const FilmBlock:React.FC<TFilmBlock> = ({film}) => {
     </div>
     <div className={styles.body}>
       <Link to={`/movie/${film.id}`} className={styles.title}>{film.title}</Link>
-      <p>{descr}</p>
+      <p className={styles.descr}>{descr}</p>
     </div>
   </div>;
 }

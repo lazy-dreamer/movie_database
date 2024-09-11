@@ -25,8 +25,9 @@
     left: 0;
     top: 0;
   }
-
-
+  @media screen and (max-width: 600px) {
+    height: 40rem;
+  }
 }
 
 .cell {
@@ -48,6 +49,9 @@
 
   &:hover {
     color: $green;
+  }
+  @media screen and (max-width: 600px) {
+    font-size: 3rem;
   }
 }
 

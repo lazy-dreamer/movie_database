@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import toast from 'react-hot-toast';
-import {setLogin} from "../redux/auth_slice/authSlice";
 import {AppDispatch} from "../redux/store";
 import {useDispatch} from "react-redux";
+import {setLoginInfo} from "../services/auth";
 
 interface Props {
   className?: string
@@ -22,15 +22,10 @@ export const LoginForm:React.FC<Props> = ({className, toggleForm, modalClose}) =
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        setLoginInfo(user, dispatch)
         toast.success('Login successful!', {
           icon: '✅',
         })
-        dispatch(setLogin({
-          userName: user.email,
-          userId: user.uid,
-          authProvider: user.providerData[0].providerId
-        }))
-        console.log(user)
         setEmail('')
         setPassword('')
         modalClose(false)
@@ -42,6 +37,7 @@ export const LoginForm:React.FC<Props> = ({className, toggleForm, modalClose}) =
         });
       });
   }
+
   return <div className={className}>
     <h3 className='subtitle'>Login form</h3>
     <form className='offsets_inside' onSubmit={loginHandler}>

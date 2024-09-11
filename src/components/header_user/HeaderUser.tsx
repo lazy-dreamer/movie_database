@@ -5,6 +5,7 @@ import toast from 'react-hot-toast';
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "../../redux/store";
 import {setLogout} from "../../redux/auth_slice/authSlice";
+import {setFavFilms} from "../../redux/films_slice/filmsSlice";
 
 interface Props {
   className?: string,
@@ -18,6 +19,7 @@ export const HeaderUser:React.FC<Props> = ({className, user}) => {
   const logOutHandler = () => {
     signOut(auth).then(() => {
       dispatch(setLogout())
+      dispatch(setFavFilms([]));
       toast.success('Successfully signed out!', {
         icon: '✅',
       })
@@ -28,7 +30,7 @@ export const HeaderUser:React.FC<Props> = ({className, user}) => {
     });
   }
   return <div className={`${className} ${s.header_user} green`}>
-    <p className='font_md'>{user.substring(0, user.indexOf('@'))}</p>
-    <button className={s.logout_btn} onClick={logOutHandler}><img src="logout.svg" alt="logout"/></button>
+    <p className={s.user_name}>{user.substring(0, user.indexOf('@'))}</p>
+    <button className={s.logout_btn} onClick={logOutHandler}><img src="/logout.svg" alt="logout"/></button>
   </div>;
 }

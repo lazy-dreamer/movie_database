@@ -17,6 +17,22 @@ let settings = {
   draggable: false,
   speed: 700,
   autoplay: true,
+  responsive: [{
+    breakpoint: 991,
+    settings: {
+      slidesToShow: 3
+    }
+  },{
+    breakpoint: 799,
+    settings: {
+      slidesToShow: 2
+    }
+  }, {
+    breakpoint: 420,
+    settings: {
+      slidesToShow: 1
+    }
+  }]
 };
 
 export const RecommendedMovies:React.FC<TId> = ({id}) => {

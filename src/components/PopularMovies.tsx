@@ -71,8 +71,8 @@ function PopularMovies() {
               nextLabel="Next"
               previousLabel="Previous"
               onPageChange={handlePageClick}
-              pageRangeDisplayed={3}
-              marginPagesDisplayed={2}
+              pageRangeDisplayed={2}
+              marginPagesDisplayed={1}
               pageCount={totalPages}
               renderOnZeroPageCount={null}
               forcePage={page - 1}

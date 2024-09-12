@@ -339,12 +339,21 @@ section {
 
 .slick-dots {
   bottom: 2rem !important;
+  font-size: 0;
 
   .slick-active button:before {
     color: $green !important;
   }
+  @media screen and (max-width: 600px) {
+    bottom: 1rem !important;
+  }
 }
 
+.slick-dots li {
+  @media screen and (max-width: 600px) {
+    margin: .3rem !important;
+  }
+}
 .slick-dots li button:before {
   color: #fff !important;
   width: 1rem !important;
@@ -443,6 +452,45 @@ section {
   .previous, .next {
     a {
       min-width: 10rem;
+    }
+  }
+  @media screen and (max-width: 420px) {
+    a {
+      padding-left: .5rem;
+      padding-right: .5rem;
+    }
+    .previous a, .next a {
+      min-width: 3rem;
+      font-size: 0;
+      position: relative;
+      &:before {
+        content: '';
+        display: block;
+        width: .8rem;
+        height: .8rem;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        border-top: 1px solid $green;
+      }
+    }
+    .previous a:before {
+      -moz-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+      -ms-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+      -webkit-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+      -o-transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+      transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+      border-left: 1px solid $green;
+      margin-left: .2rem;
+    }
+    .next a:before {
+      -moz-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      -ms-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      -o-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      transform: translateX(-50%) translateY(-50%) rotate(45deg);
+      border-right: 1px solid $green;
+      margin-left: -.2rem;
     }
   }
 }
@@ -778,6 +826,14 @@ input {
       &:not(:last-child) {
         margin-bottom: 2rem;
       }
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .quarter_blocks {
+    > * {
+      width: calc(100% - 2rem);
     }
   }
 }

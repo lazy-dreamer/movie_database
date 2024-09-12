@@ -38,6 +38,7 @@ let settings = {
 export const SimilarMovies:React.FC<TId> = ({id}) =>  {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
     const fetchRecommendedMovies = async (id:string) => {
       const movies = await MoviesService.getSimilarMovies(id)
@@ -47,8 +48,7 @@ export const SimilarMovies:React.FC<TId> = ({id}) =>  {
 
     fetchRecommendedMovies(id)
   }, [id]);
-
-
+  
   return <section>
     <div className="screen_content">
       <h1 className='main_title'>Similar movies</h1>

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import toast from 'react-hot-toast';
 import {AppDispatch} from "../redux/store";
 import {useDispatch} from "react-redux";

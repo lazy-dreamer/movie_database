@@ -6,7 +6,6 @@ import {addFavorite, removeFavorite} from "../../redux/films_slice/filmsSlice";
 import { RootState } from '../../redux/store';
 import toast from 'react-hot-toast';
 
-
 export type TFilmProps = {
   "adult": boolean;
   "backdrop_path": string;
@@ -23,6 +22,7 @@ export type TFilmProps = {
   "vote_average": number;
   "vote_count": number
 }
+
 type TFilmBlock = {
   film: TFilmProps
 }
@@ -34,9 +34,22 @@ export const FilmBlock:React.FC<TFilmBlock> = ({film}) => {
   const descr = film.overview.length > 35 ? film.overview.substr(0, 35) + '...' : film.overview.length
   const isFav = favorites.find((el:TFilmProps) => el.id === film.id);
 
+  const favAdd = () => {
+    dispatch(addFavorite(film));
+    toast.success('Added to favourites!', {
+      icon: '✅',
+    })
+  }
+  const favRemove = () => {
+    dispatch(removeFavorite(film));
+    toast.success('Removed from favourites!', {
+      icon: '✅',
+    })
+  }
+  
   const onFavClick = () => {
     if (isAuth) {
-      isFav ? dispatch(removeFavorite(film)) : dispatch(addFavorite(film));
+      isFav ? favRemove() : favAdd();
     } else {
       toast.error('You should be logged in or registered!', {
         icon: '⛔️',

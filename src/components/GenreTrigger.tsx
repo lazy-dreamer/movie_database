@@ -41,8 +41,7 @@ export function GenreTrigger() {
       dispatch(setActivePage(1));
     }
   }, [selectedOption])
-
-
+  
   return <div className="select_block">
     {selectOptions.length > 0 ? <Select
       defaultValue={selectedOption}

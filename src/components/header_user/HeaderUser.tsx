@@ -9,10 +9,10 @@ import {setFavFilms} from "../../redux/films_slice/filmsSlice";
 
 interface Props {
   className?: string,
-  user: string
+  userName: string
 }
 
-export const HeaderUser:React.FC<Props> = ({className, user}) => {
+export const HeaderUser:React.FC<Props> = ({className, userName}) => {
   const auth = getAuth();
   const dispatch: AppDispatch = useDispatch();
   
@@ -30,7 +30,7 @@ export const HeaderUser:React.FC<Props> = ({className, user}) => {
     });
   }
   return <div className={`${className} ${s.header_user} green`}>
-    <p className={s.user_name}>{user.substring(0, user.indexOf('@'))}</p>
+    <p className={s.user_name}>{userName.substring(0, userName.indexOf('@'))}</p>
     <button className={s.logout_btn} onClick={logOutHandler}><img src="/logout.svg" alt="logout"/></button>
   </div>;
 }

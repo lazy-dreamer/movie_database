@@ -38,6 +38,7 @@ let settings = {
 export const RecommendedMovies:React.FC<TId> = ({id}) => {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
+  
   useEffect(() => {
     const fetchRecommendedMovies = async (id:string) => {
       const movies = await MoviesService.getRecommendedMovies(id)
@@ -58,7 +59,6 @@ export const RecommendedMovies:React.FC<TId> = ({id}) => {
           }
         </Slider> : <p className='subtitle'>Sorry, there are no recommendations :(</p>
       }
-
     </div>
   </section>;
 }

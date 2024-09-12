@@ -6,58 +6,58 @@ import {Preloader} from "../preloader/Preloader";
 export type TId = {
   id: string
 }
-
 type TMovieGenres = {
-  "id": number;
-  "name": string
+  id: number;
+  name: string
 }
 type TPoductionCompanies = {
-  "id": number,
-  "logo_path": string,
-  "name": string,
-  "origin_country": string
+  id: number,
+  logo_path: string,
+  name: string,
+  origin_country: string
 }
 type TProductionCountries = {
-  "iso_3166_1": string,
-  "name": string
+  iso_3166_1: string,
+  name: string
 }
 type TSpokenLanguages = {
-  "english_name": string,
-  "iso_639_1": string,
-  "name": string
+  english_name: string,
+  iso_639_1: string,
+  name: string
+}
+type TMovieCollection = {
+  id: number,
+  name: string,
+  poster_path: string,
+  backdrop_path: string
 }
 type TMovieDetails = {
-  "adult": boolean,
-  "backdrop_path": string,
-  "belongs_to_collection": {
-      "id": number,
-      "name": string,
-      "poster_path": string,
-      "backdrop_path": string
-  },
-  "budget": 168000000,
-  "genres": TMovieGenres[],
-  "homepage": string,
-  "id": 786892,
-  "imdb_id": string,
-  "origin_country": string[],
-  "original_language": string,
-  "original_title": string,
-  "overview": string,
-  "popularity": 3037.286,
-  "poster_path": string,
-  "production_companies": TPoductionCompanies[],
-  "production_countries": TProductionCountries[],
-  "release_date": string,
-  "revenue": 168076980,
-  "runtime": 149,
-  "spoken_languages": TSpokenLanguages[],
-  "status": string,
-  "tagline": string,
-  "title": string,
-  "video": false,
-  "vote_average": 7.721,
-  "vote_count": 1282
+  adult: boolean,
+  backdrop_path: string,
+  belongs_to_collection: TMovieCollection,
+  budget: number,
+  genres: TMovieGenres[],
+  homepage: string,
+  id: number,
+  imdb_id: string,
+  origin_country: string[],
+  original_language: string,
+  original_title: string,
+  overview: string,
+  popularity: number,
+  poster_path: string,
+  production_companies: TPoductionCompanies[],
+  production_countries: TProductionCountries[],
+  release_date: string,
+  revenue: number,
+  runtime: number,
+  spoken_languages: TSpokenLanguages[],
+  status: string,
+  tagline: string,
+  title: string,
+  video: false,
+  vote_average: number,
+  vote_count: number
 }
 
 export const MovieDetails:React.FC<TId> = ({id}) => {
@@ -125,10 +125,6 @@ export const MovieDetails:React.FC<TId> = ({id}) => {
             <li>
               <div className={s.feature_block}>
                 <p className={s.feature_title}>Genres:</p>
-              </div>
-            </li>
-            <li>
-              <div className={s.feature_block}>
                 {movie?.genres.map(genre => <p key={genre.name} className="green">{genre.name}</p>)}
               </div>
             </li>
@@ -153,7 +149,6 @@ export const MovieDetails:React.FC<TId> = ({id}) => {
               <img src={'https://image.tmdb.org/t/p/w1280' + movie?.backdrop_path} alt="main image"/>
             </div>}
           </div> : ''}
-          
         </div>
       </div>
     </section>

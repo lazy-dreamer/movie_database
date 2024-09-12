@@ -108,6 +108,11 @@
   >*:not(:first-child) {
     margin-left: 1rem;
   }
+  @media screen and (max-width: 600px) {
+    >*:not(:first-child) {
+      margin-left: 2rem;
+    }
+  }
 }
 .reg_btn {
   display: inline-flex;
@@ -170,6 +175,7 @@
   width: 3.5rem;
   height: 3.5rem;
   border: 1px solid rgba($green,.5);
+  border-radius: .7rem;
   @include transition;
   
   &:before, &:after {

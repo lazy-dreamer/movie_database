@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import toast from 'react-hot-toast';
 import {useDispatch} from "react-redux";
-import { AppDispatch} from "../redux/store";
+import { AppDispatch } from "../redux/store";
 import {setLoginInfo} from "../services/auth";
 
 interface Props {

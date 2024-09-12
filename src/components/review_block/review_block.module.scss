@@ -15,6 +15,12 @@
   &:not(:last-child) {
     margin-bottom: 1.5rem;
   }
+  @media screen and (max-width: 420px) {
+    padding: 1.5rem;
+    > *:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
 }
 
 .head {
@@ -30,6 +36,9 @@
   color: #fff;
   font-weight: 600;
   font-size: 2rem;
+  @media screen and (max-width: 420px) {
+    font-size: 1.8rem;
+  }
 }
 
 .avatar {

@@ -22,7 +22,6 @@ export function SortingTrigger() {
     }
   }, [selectedOption])
 
-
   return <div className="select_block">
     {sortingOption.length > 0 ? <Select
       defaultValue={selectedOption}

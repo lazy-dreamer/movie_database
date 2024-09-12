@@ -24,6 +24,10 @@
     position: absolute;
     left: 0;
     top: 0;
+    @media screen and (max-width: 420px) {
+      background: linear-gradient(to right, $dark_bg 0%, rgba($dark_bg, .3) 15%, rgba($dark_bg, .3) 85%, $dark_bg 100%,), 
+      linear-gradient(to top, $dark_bg 0%, rgba($dark_bg, .3) 15%, rgba($dark_bg, .3) 85%, $dark_bg 100%,);
+    }
   }
   @media screen and (max-width: 600px) {
     height: 40rem;
@@ -52,6 +56,9 @@
   }
   @media screen and (max-width: 600px) {
     font-size: 3rem;
+  }
+  @media screen and (max-width: 420px) {
+    font-size: 2.6rem;
   }
 }
 

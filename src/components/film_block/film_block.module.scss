@@ -119,11 +119,20 @@
     }
   }
 
-  &:hover, &.filled {
+  &.filled {
     border-color: rgba($green, .3);
 
     svg * {
       fill: $green
+    }
+  }
+  @media screen and (min-width: 992px) {
+    &:hover {
+      border-color: rgba($green, .3);
+
+      svg * {
+        fill: $green
+      }
     }
   }
 }

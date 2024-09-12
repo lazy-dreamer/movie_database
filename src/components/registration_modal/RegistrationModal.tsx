@@ -3,7 +3,7 @@ import s from './reg_modal.module.scss'
 import {LoginForm} from "../LoginForm";
 import {RegForm} from "../RegForm";
 import { getAuth, signInWithPopup } from "firebase/auth";
-import {db, provider} from "../../index";
+import {provider} from "../../index";
 import toast from 'react-hot-toast';
 import {AppDispatch} from "../../redux/store";
 import {useDispatch} from "react-redux";

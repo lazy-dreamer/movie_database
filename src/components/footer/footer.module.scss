@@ -24,6 +24,15 @@
     max-width: 5rem;
     height: auto;
   }
+  @media screen and (max-width: 799px) {
+    font-size: 1.6rem;
+    > *:not(:last-child) {
+      margin-right: 1rem;
+    }
+    img, svg {
+      max-width: 4rem;
+    }
+  }
 }
 
 .footer_sides {

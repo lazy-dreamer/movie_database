@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@import "../../styles/variables";
 
 .hero_slide {
   width: 100%;
@@ -9,25 +9,49 @@
   max-width: 150rem;
   margin-left: auto;
   margin-right: auto;
-  height: 45rem;
+  height: 65rem;
   display: table;
   background-position: center top;
   position: relative;
   padding: 5rem 10px;
 
   &:before {
-    content: '';
+    content: "";
     display: block;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to right, $dark_bg 0%, rgba($dark_bg, .5) 15%, rgba($dark_bg, .5) 85%, $dark_bg 100%,);
+    background: linear-gradient(
+      to right,
+      $dark_bg 0%,
+      rgba($dark_bg, 0.5) 15%,
+      rgba($dark_bg, 0.5) 85%,
+      $dark_bg 100%
+    );
     position: absolute;
     left: 0;
     top: 0;
     @media screen and (max-width: 420px) {
-      background: linear-gradient(to right, $dark_bg 0%, rgba($dark_bg, .3) 15%, rgba($dark_bg, .3) 85%, $dark_bg 100%,), 
-      linear-gradient(to top, $dark_bg 0%, rgba($dark_bg, .3) 15%, rgba($dark_bg, .3) 85%, $dark_bg 100%,);
+      background: linear-gradient(
+          to right,
+          $dark_bg 0%,
+          rgba($dark_bg, 0.3) 15%,
+          rgba($dark_bg, 0.3) 85%,
+          $dark_bg 100%
+        ),
+        linear-gradient(
+          to top,
+          $dark_bg 0%,
+          rgba($dark_bg, 0.3) 15%,
+          rgba($dark_bg, 0.3) 85%,
+          $dark_bg 100%
+        );
     }
+  }
+  @media screen and (max-width: 1500px) {
+    height: 55rem;
+  }
+  @media screen and (max-width: 992px) {
+    height: 45rem;
   }
   @media screen and (max-width: 600px) {
     height: 40rem;
